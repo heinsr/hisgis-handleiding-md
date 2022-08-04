@@ -73,4 +73,18 @@ layout: default
 <p>Administratief houden we rekening met percelen die verdeeld zijn over meer dan 1 getekend vlak. Het “echte” administratieve perceel is gelijk aan de samenvoeging van alle vlakjes die hetzelfde kadastrale adres (perceelnummer) delen. Dat betekent dat je voor simpele gevallen (vb een weiland met de helft van een sloot als onderdeel van dat weiland als perceel) gewoon twee vlakjes kunt tekenen met hetzelfde perceelnummer. De ene wordt dan T[natural=water], want blauw gekleurd op het minuutplan. De andere krijgt dan T[landuse=meadow] na koppelen met de OAT-gegevens. Voor de automatische verwerking in bijvoorbeeld de koppelwebsite, berekenen we dan zaken als de oppervlakte van het perceel als geheel, automatisch als de som van de oppervlakte van alle vlakjes met hetzelfde kadastrale adres.</p>
 </div>
 
-<p>het perceel: P[5] stop</p>
+<h3>Gebouwen</h3>
+
+<p>Alle gebouwen moeten worden getekend en als gebouw worden getagged.</p>
+
+<p>P[building=yes] is de minimaal vereiste tag.</p>
+
+<p>Als in de OAT het soort gebouw staat kun je een specifiekere tagwaarde gebruiken. Veel-voorkomend:<ul>
+  <li>T[building=house]</li>
+  <li>T[building=shed]</li>
+  <li>T[building=warehouse]</li>
+</ul></p>
+
+<p>Belangrijk. Als een perceel helemaal ingenomen wordt door het gebouw moet het gebouw ook met tags van het “kadastraal adres” aangevuld worden.</p>
+
+<div class="tip"><p>Raadpleeg voor de juiste waarde de “Tags - Kadaster 1832” wiki pagina. Kan je de bijbehorende tag naar jouw mening niet vinden daarin, tag het gebouw dan voorlopig met het algemene “yes” en start een discussie over de tagging voor dit specifieke gebouw.</p></div>
