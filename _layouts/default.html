@@ -24,7 +24,7 @@
 var elements = document.querySelectorAll('p, div.p, figcaption, li');
 Array.prototype.forEach.call(elements, function(el, i){
   el.innerHTML = el.innerHTML.replaceAll(/P\[(\d*\.*)\]/g, '<span class="badge rounded-pill text-bg-success" title="perceel">$1</span>');});
-var elements = document.querySelectorAll('p, div.p, figcaption, li');
+var elements = document.querySelectorAll('p, div.p, figcaption, li, p.ul.li');
 Array.prototype.forEach.call(elements, function(el, i){
   el.innerHTML = el.innerHTML.replaceAll(/T\[(\w*\.*)\]/g, '<span class="badge rounded-pill text-bg-warning" title="tag">$1</span>');
   });
