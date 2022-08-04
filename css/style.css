@@ -4,6 +4,12 @@
     background-color:#d9d2e9;
     border-radius:5px;
     padding:3px;
+    margin-bottom: 5px;
+    }
+.tip::before {
+    font-weight: bold;
+    font-family: cursive;
+    content: "Extra informatie";
     }
 
 .tip {
@@ -11,6 +17,7 @@
     background-color:#fce5cd;
     border-radius:5px;
     padding:3px;
+    margin-bottom: 5px;
     }
 .tip::before {
     font-weight: bold;
