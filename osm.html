@@ -15,14 +15,14 @@ layout: default
 
 <p>Het minuutplan wordt zo nauwkeurig mogelijk overgebracht. Soms is het daarvoor nodig  op de situatie in te zoomen. In het voorbeeld hieronder lijkt het verloop van de perceelgrenzen door a, b, c en d met 4 nodes accuraat beschreven.</p>
 
-<div class="d-flex w-100 justify-content-between">
+<div class="d-flex w-100 p-1 justify-content-between">
   <figure><img class="img-fluid" src="img/image21.png"/></figure>
   <figure><img class="img-fluid" src="img/image12.png"/></figure>
 </div>
 
 <p>Bij verder inzoomen blijkt echter de werkelijkheid meer detail te eisen. Waardoor hier geen 4 maar 5 nodes nodig zijn voor een juiste beschrijving.</p>
 
-<div class="d-flex w-100 m-1 justify-content-between">
+<div class="d-flex w-100 p-1 justify-content-between">
   <figure><img class="img-fluid" src="img/image7.png"/></figure>
   <figure><img class="img-fluid" src="img/image8.png"/></figure>
 </div>
@@ -31,9 +31,19 @@ layout: default
 
 <p>Bij het intekenen van percelen als vlakken moeten deze vlakken aan een paar voorwaarden voldoen. Percelen mogen elkaar niet overlappen maar ze moeten ook naadloos op elkaar aansluiten. Aan die voorwaarden wordt altijd voldaan als vlakken van de zijden die ze delen alle nodes gemeenschappelijk hebben. Getekende nodes die gedeeld worden zijn niet langer wit maar worden groen. Zo is dus te controleren of er nog “losse” nodes zijn op de grenzen van percelen. Elke “losse” node levert een topologische fout op.</p>
 
-<div class="d-flex w-100 m-3 justify-content-between">
+<div class="d-flex w-100 p-3 justify-content-between">
   <figure><img class="img-fluid" src="img/image10.png"/><figcaption>perceel 496</figcaption></figure>
   <figure><img class="img-fluid" src="img/image28.png"/><figcaption>perceel 496 getekend</figcaption></figure>
   <figure><img class="img-fluid" src="img/image9.png"/><figcaption>perceel 497 getekend. Nodes op de grenzen worden gedeeld en zijn groen behalve 1 daarvan</figcaption></figure>
   <figure><img class="img-fluid" src="img/image17.png"/><figcaption>fout van ongedeelde node gecorrigeerd.Alle gedeelde nodes zijn groen</figcaption></figure>
+</div>
+
+<p>Naast de juistheid van het inbrengen van een perceel is natuurlijk ook de precisie waarmee dat gebeurt van belang. De uitdaging is daarbij, een goede middenweg te vinden tussen wat ideaal is en wat nuttig is.</p>
+
+<p>In het voorbeeld hieronder, perceel 97, kan het hele perceel perfect beschreven worden door nodes op zeer korte afstand van elkaar te plaatsen langs de hele omtrek. Zonder twijfel wordt hiermee het water juist en precies weergegeven. Maar al deze nodes moeten opnieuw gebruikt worden bij het intekenen van perceel 98. Een topologische fout is snel gemaakt in dit geval. Met een kleiner aantal nodes, en dus een wat lagere precisie, worden fouten gemakkelijker vermeden en kan de precisie binnen redelijke grenzen blijven. Vergelijk de figuur 3 hieronder met  figuur 1.</p>
+
+<div class="d-flex w-100 p-3 justify-content-between">
+  <figure><img class="img-fluid" src="img/image6.png"/><figcaption>...</figcaption></figure>
+  <figure><img class="img-fluid" src="img/image22.png"/><figcaption>...</figcaption></figure>
+  <figure><img class="img-fluid" src="img/image15.png"/><figcaption>...</figcaption></figure>
 </div>
