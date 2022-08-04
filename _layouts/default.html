@@ -22,7 +22,7 @@
     <script>
 var elements = document.querySelectorAll('div');
 Array.prototype.forEach.call(elements, function(el, i){
-  el.innerHTML = el.innerHTML.replaceAll("P[]", 'PERCEEL');
+  el.innerHTML = el.innerHTML.replaceAll(/P\[(\d*\.*)\]/g, '<span class="badge badge-success">$1</span>');
   });
     </script>
   </body>
