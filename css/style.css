@@ -1,7 +1,10 @@
 details {background-color:#d9d2e9;}
 
 figure {
-    margin:3px;
-    border-radius: 25px;
+    border-radius: 0px 0px 10px 25px;
     background-color: #cccccc;
     }
+
+figcaption{
+    text-align: center;
+}
