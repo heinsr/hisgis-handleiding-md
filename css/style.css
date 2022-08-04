@@ -1,3 +1,7 @@
 details {background-color:#d9d2e9;}
 
-figure {background-color: #cccccc;}
+figure {
+    margin:3px;
+    border-radius: 25px;
+    background-color: #cccccc;
+    }
