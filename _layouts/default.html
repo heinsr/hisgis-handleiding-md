@@ -22,8 +22,8 @@
     <script>
 var elements = document.querySelectorAll('p, figure, figcaption, figure.figcaption, details, details > p, details.summary');
 Array.prototype.forEach.call(elements, function(el, i){
-  el.innerHTML = el.innerHTML.replaceAll(/P\[(\d*\.*)\]/g, '<span class="badge rounded-pill text-bg-success" title="perceel">$1</span>');
-  el.innerHTML = el.innerHTML.replaceAll(/T\[(\.*)\]/g, '<span class="badge rounded-pill text-bg-warning" title="tag">$1</span>');
+  el.textContent = el.textContent.replaceAll(/P\[(\d*\.*)\]/g, '<span class="badge rounded-pill text-bg-success" title="perceel">$1</span>');
+  el.textContent = el.textContent.replaceAll(/T\[(\.*)\]/g, '<span class="badge rounded-pill text-bg-warning" title="tag">$1</span>');
   });
     </script>
   </body>
