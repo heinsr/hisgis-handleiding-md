@@ -3,16 +3,19 @@
     border-left: 2px solid black;
     background-color:#d9d2e9;
     border-radius:5px;
+    padding:3px;
     }
 
 .tip {
     border-left: 2px solid black;
     background-color:#fce5cd;
+    border-radius:5px;
+    padding:3px;
     }
 .tip::before {
     font-weight: bold;
     font-family: cursive;
-    content: "Tip!\n";
+    content: "Tip!";
     }
 
 figure {
