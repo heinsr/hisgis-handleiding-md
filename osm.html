@@ -105,4 +105,77 @@ layout: default
 </div>
 
 <h4>Buigpunten</h4>
-<p>Waar veelal rechte lijnen de grens vormen van een perceel gaven de tekenaars van de minuutplannen een afwijking daarvan vaak aan met een extra streepje. Dat deden ze voornamelijk wanneer de hoek niet echt heel groot was. In het voorbeeld hiernaast zijn die streepjes aangegegeven met rode punten. De streepjes tekenen we niet. De buigpunten zijn wel de plekken om ook een node te plaatsen bij het tekenen van het perceel.</p>
+<p><img src="img/image5.png" class="float-sm-end"/>Waar veelal rechte lijnen de grens vormen van een perceel gaven de tekenaars van de minuutplannen een afwijking daarvan vaak aan met een extra streepje. Dat deden ze voornamelijk wanneer de hoek niet echt heel groot was. In het voorbeeld hiernaast zijn die streepjes aangegegeven met rode punten. De streepjes tekenen we niet. De buigpunten zijn wel de plekken om ook een node te plaatsen bij het tekenen van het perceel.</p>
+
+<h3>Taggen</h3>
+<p>Het tekenen van de percelen doen we als vlakken. Het “kadastraal adres” als aanduiding van het perceel doen we met een specifieke set tags.</p>
+
+<p>De minimaal toe te voegen tags zijn:<ul>
+<li><b>kad:gemeente</b> als key voor de kadastrale gemeenten</li>
+<li><b>kad:sectie</b> voor de kadastrale sectie (de letter van de blad-aanduiding)</li>
+<li><b>kad:perceelnr</b> voor het perceelnummer. Let op: ENKEL het numerieke deel.</li>
+<li><b>kad:perceelnrtvg</b> voor een alfanumerieke toevoeging op het perceelnummer, zoals “bis”.</li>
+<li><b>kad:blad</b> voor het bladnummer van het minuutplan dat je tekent.</li></ul></p>
+
+<p>Optioneel kun je ook grondgebruik taggen. Dat doe je door aan de key landuse  het grondgebruik zoals geadministreerd in de OAT toe te voegen. in de extra informatie vind je meer aanwijzingen hierover.</p>
+
+<p>Heel operationeel; wat ik doe is de tags in iD op tekst-selectie-modus zetten, en vervolgens die reeks tags kopiëren <kbd>ctrl+c</kbd>, en dan bij elk volgend perceel weer plakken met <kbd>ctrl+v</kbd>. Dan hoef ik enkel nog het perceelnummer aan te passen.</p>
+
+<div class="extra">
+<p>Soms zie je hier of daar nog wat legacy-tags staan die nog aanwezig zijn uit oudere systemen die we nu trachten te homogeniseren. Die kun je verder negeren.</p>
+ 
+<p>Dan is er nog het eigenlijke grondgebruik. Op termijn wordt dit automatisch gekoppeld met de OAT-tool, waardoor je het grondgebruik met een druk op een knop zult kunnen inladen. Of minimaal dat je in setjes per sectie het grondgebruik zult kunnen koppelen.</p>
+ 
+<p>Mocht je gelijk de behoefte voelen om het grondgebruik handmatig te koppelen (hoeft dus niet, en het kan achteraf bij het definitief samenvoegen van OAT data met de intekendata in 1 keer) dan daarvoor de volgende informatie:<ul>
+<li>Het beeld op het minuutplan is leidend. Dus wat als water gekleurd is op het minuutplan, wordt T[natural=water].</li>
+<li>Verder gebruiken we alle tags voor grondgebruik zoals OpenStreetMap die ook gebruikt.</li>
+<li>Er zijn een handvol afwijkende interpretaties. Zo gebruiken we:<ul>
+<li>T[landuse=residential] als algemeen grondgebruik voor een “erf”</li>
+<li>T[landuse=construction] gebruiken we voor dijken / kaden</li>
+<li>T[landuse=allotments] gebruiken we om een (moes)tuin te coderen. Je zult zien dat ook de kleurenweergave in iD daarop is aangepast.</li></ul></li></ul></p>
+ 
+<p>Voor een overzicht van alle tags zoals we die gebruiken, zie onze wiki op Tags - Kadaster 1832 - HisGIS.</p>
+</div>
+
+<h3>Complexe situaties</h3>
+<p>Een perceel (A) geheel omsloten door een ander perceel (B) tekenen we als een zg multipolygoon.</p>
+
+<p>Geheel omsloten noemen we zo'n perceel A als het niet meer dan 1 node met het grotere perceel gemeen heeft.</p>
+
+<p>In onderstaand voorbeeld wordt het gebouw met perceelnummer P[239] (Schoonrewoerd sectie C) volledig omgeven door P[238]. In dit geval wordt geen enkele node van P[239] gedeeld met P[238].</p>
+
+<p>Hieronder de tekeninstructies om zo'n multipolygoon correct tekenen en te taggen. Meer details over multipolygonen komen aan de orde in een blogpost op de HisGIS-geoblog.</p>
+
+<h2>Lijnelementen (Wegen en waterlopen)</h2>
+
+<p>Wegen en waterlopen / waterwegen moeten (naast het water als vlakje) ook getekend worden als lijn-element. Het is dat lijn-element die vervolgens ook de naam krijgt (met de name-tag).</p>
+
+<h3>Wegen</h3>
+<p>De wegen coderen we met highway=* als tag;<ul>
+  <li>T[highway=trunk], T[highway=primary] en T[highway=secondary] zijn voorbehouden voor de administratief gedeclareerde “Groote Wegen” van koning Willem I. Dat zijn als het ware de eigentijdse “snelwegen”.</li>
+  <li>De tag T[highway=tertiary] kun je gebruiken voor algemeen doorgaande wegen in een gebied.</li>
+  <li>De standaard-tag is in de regel T[highway=unclassified].</li>
+  <li>De tag T[highway=track] gebruiken we voor wegen over een ander grondgebruik heen. Dat staat dan in de OAT als “uitweg als weiland”, bijvoorbeeld.</li>
+  <li>De tag T[highway=path] gebruik ik voor “paden” die op het minuutplan expliciet als streepjeslijn zijn aangegeven. Het onderscheid met T[highway=track] is niet altijd helder te maken. Dat is verder ook niet erg, want het is in de regel een weg met een zeer lokaal karakter. Ik wil dit paradigma toch meegeven, zodat je snapt hoe ik dat zie en zelf probeer toe te passen. Maar ik zal ook gelijk ruiterlijk toegeven dat ook ik dat niet altijd consequent toepas. Bijvoorbeeld de wegen op een dijk, en vooral de “op- en afritten” daarvan zijn befaamd ingewikkeld.</li>
+  <li>In een stedelijke context gebruiken we T[highway=residential] voor woonstraten (in de regel met een naam). In een stedelijke omgeving gebruik ik nooit T[highway=path], maar altijd T[highway=footway] om steegjes en zo aan te geven.</li>
+</ul></p>
+
+<h3>Waterlopen</h3>
+<p>Waterlopen/Waterwegen zijn eenvoudiger;<ul>
+<li>T[waterway=canal] voor duidelijk kanalen of vaarten (stedelijk of landelijk); die zijn erg recht en door de mens gegraven.</li>
+<li>T[waterway=river] voor de grote rivieren</li>
+<li>T[waterway=stream] voor kleinere stroompjes. De hoeven niet noodzakelijk natuurlijke beekjes te zijn. Ook grotere ontginnings-sloten codeer ik wel met T[waterway=stream]. Het is de default optie, als het ware.</li>
+<li>T[waterway=ditch] gebruik ik voor hele kleine geultjes, bijvoorbeeld langs weerszijden van een weg.</li>
+<li>T[intermittent=yes] gebruik ik als codering om vast te leggen dat het een ondergrondse verbinding betreft. Die kom je niet zo vaak tegen, of eigenlijk nauwelijks. Soms eens bij gedempte kanalen in een stad. Ik snap zeer goed (ook toen ik dit introduceerde) dat intermittent iets heel anders betekent (namelijk het periodieke/seizoensgebonden karakter van het droogvallen van de stroom). Ik zag zo snel toen echter geen alternatieve constructie, en daar kwam nog eens bij dat de cartografie (ik weet het; never tag for the map…) er perfect bij past. Uiteindelijk is dit een slecht patroon dat we nog eens zullen moeten vervangen, en een custom rendering bij kiezen, maar voorlopig vind ik dit nog net acceptabel.</li></ul></p>
+
+<h3>Puntlocaties (plaatsen)</h3>
+<p>Alle plaats-namen codeer je in principe als puntlocatie, met T[place=*] als tag;<ul>
+<li>T[place=city] voor grote steden</li>
+<li>T[place=town] voor kleine steden
+<li>T[place=village] voor dorpen
+<li>T[place=hamlet] voor gehuchten met meerdere huizen
+<li>T[place=isolated_dwelling] voor individuele huizen. Dat geldt ook voor een buitenplaats met vb. een koetsen-stalling/wagenhuis e.d. Het gaat erom dat als de naam duidelijk op 1 complex slaat, dat het een T[place=isolated_dwelling] wordt.
+<li>T[place=locality] voor veldnamen. Je hoeft niet krampachtig elke naam van elk blokje percelen daarmee in te voeren. Deze gebruik je extreem zelden, maar ik weet uit ervaring dat in de Zuidelijke Nederlanden dat soort relevante veldnamen vaker voorkomen dan in Nederland boven de rivieren.</ul></p>
+
+<h3>Ongenummerd water</h3>
+<p>Ongenummerd water komt haast niet voor; soms eens bij grote rivieren. De regel is dat alle water als vlak moet worden getekend, los van of dat vlak ook een perceel is of niet.</p>
