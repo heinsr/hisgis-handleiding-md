@@ -15,3 +15,5 @@ Afhankelijk van de keuze die we maken bij het plaatsen van de nodes worden deze 
 ### Juistheid
 
 Het minuutplan wordt zo nauwkeurig mogelijk overgebracht. Soms is het daarvoor nodig op de situatie in te zoomen. In het voorbeeld hieronder lijkt het verloop van de perceelgrenzen door a, b, c en d met 4 nodes accuraat beschreven.
+
+Hoe voeg je hier plaatjes aan toe? Mmm, misschien mis ik die plugin? Tocj maar een Thomas' bericht herlezen.
